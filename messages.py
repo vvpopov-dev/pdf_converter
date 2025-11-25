@@ -28,11 +28,6 @@ cmpl_mes_ru = "Ваш файл готов!\n\n Выберите, что Вы х�
 cmpl_mes_en = "Your file is ready!\n\n Choose what you want to do next:"
 cmpl_mes_es = "¡Su archivo está listo!\ттElija lo que quiere hacer a continuación:"
 
-"""Error message in different languages."""
-error_mes_ru = "Произошла ошибка при обработке Ваших файлов. Пожалуйста, попробуйте еще раз."
-error_mes_en = "An error occurred while processing your files. Please try again."
-error_mes_es = "Ocurrió un error al procesar sus archivos. Por favor, inténtelo de nuevo."
-
 """Support message in different languages."""
 support_mes_ru = "Если у Вас есть вопросы или нужна помощь, пожалуйста, напишите Ваше обращение в чат и через некоторое время с вами свяжется администратор."
 support_mes_en = "If you have any questions or need assistance, please write your request in the chat and an administrator will contact you shortly."
@@ -42,7 +37,6 @@ support_mes_es = "Si tiene alguna pregunta o necesita ayuda, por favor escriba s
 conf_mes_ru = "Спасибо за Ваше обращение! Ближайшее время наша администрация даст Вам ответ."
 conf_mes_en = "Thank you for your request! Our administration will get back to you shortly."
 conf_mes_es = "¡Gracias por su solicitud! Nuestra administración se pondrá en contacto con usted en breve."
-
 
 """Change language message in different languages."""
 change_lang_mes_ru = "Пожжалуйста, выберите язык:"
@@ -58,3 +52,8 @@ set_lang_es = "¡Idioma cambiado a español!"
 out_of_ord_mes_ru = "Сервис находится в разработке. Пожалуйста, попробуйте позже."
 out_of_ord_mes_en = "The service is under development. Please try again later."
 out_of_ord_mes_es = "El servicio está en desarrollo. Por favor, inténtelo de nuevo más tarde."
+
+"""Error message in different languages."""
+error_ru = "Что-то пошло не так..\n\nПожалуйста обратитесь в поддержку для оперативного решения проблемы."
+error_en = "Something went wrong..\n\nPlease contact support for a prompt solution."
+error_es = "Algo salió mal..\n\nComuníquese con el soporte para obtener una solución rápida."

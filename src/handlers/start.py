@@ -8,16 +8,21 @@ import messages as msg_text
 
 @dp.message_handler(commands=["start"])
 async def start(msg: Message):
-    user = await get_user(msg.from_user.id)
+    user, ban = await get_user(msg.from_user.id)
 
     if not user:
         user_lang = msg.from_user.language_code
         if user_lang not in ["ru", "es"]:
             user_lang = "en"
+        
         user = await set_user(msg.from_user.id, msg.from_user.username, user_lang)
 
+    if ban:
+        await msg.answer("Вы в бане")
+        return
+    
     if user.is_admin:
-        await msg.answer(msg_text.start_mes_ru, reply_markup=main_kb.main_admin)
+        await msg.answer(msg_text.start_mes_ru, reply_markup=main_kb.main_menu_admin)
     else:
         if user.language == "ru":
             await msg.answer(msg_text.start_mes_ru, reply_markup=main_kb.main_menu_ru)

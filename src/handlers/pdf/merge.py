@@ -49,7 +49,12 @@ async def _merge_pdf_handler(msg: Message, state: FSMContext):
         except Exception:
             pass
 
-    user = await get_user(msg.from_user.id)
+    user, ban = await get_user(msg.from_user.id)
+
+    if ban:
+        await msg.answer("Вы в бане")
+        return
+    
     if msg.document.mime_type != "application/pdf":
         await state.finish()
         if user.language == "ru":
@@ -111,7 +116,6 @@ async def _merge_pdf_handler(msg: Message, state: FSMContext):
                 pass
             wait_messages.pop(group_id, None)
 
-        # await msg.edit_text(msg.from_user.id, "Ваш файл готов!", reply_markup=main_kb.main_menu_ru)
         await bot.send_document(document=pdf, chat_id=msg.chat.id)
         
         await msg.answer(msg_text.cmpl_mes_ru if user.language == "ru" 

@@ -35,7 +35,12 @@ async def support_message(msg: Message, state):
     user_msg = msg.text
     await bot.send_message(chat_id=settings.ADMIN_ID, text=f"Message from {msg.from_user.id} ({msg.from_user.username}):\n{user_msg}")
 
-    user = await get_user(msg.from_user.id)
+    user, ban = await get_user(msg.from_user.id)
+    
+    if ban:
+        await msg.answer("Вы в бане")
+        return
+    
     if user.language == "ru":
         await msg.answer(msg_text.conf_mes_ru, reply_markup=main_kb.back_ru)
     elif user.language == "es":

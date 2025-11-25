@@ -1,5 +1,7 @@
 from aiogram.types import InlineKeyboardButton
 
+"""Admin menu"""
+adm_menu_btn = InlineKeyboardButton("Перейти в админ-панель", callback_data="adm_menu")
 
 """Ban button"""
 ban_btn = InlineKeyboardButton("Заблокировать", callback_data="ban")
@@ -12,9 +14,6 @@ sendall_btn = InlineKeyboardButton("Отправить рассылку", callba
 
 """Statistic button"""
 stat_btn = InlineKeyboardButton("Показать статистику бота", callback_data="stat")
-
-"""Admin menu"""
-adm_menu_btn = InlineKeyboardButton("Перейти в админ-панель", callback_data="adm_menu")
 
 """Add admin"""
 adm_add_btn = InlineKeyboardButton("Добавить администратора", callback_data="adm_add")

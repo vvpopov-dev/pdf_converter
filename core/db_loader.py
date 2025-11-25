@@ -17,16 +17,6 @@ async_session_maker = async_sessionmaker(async_engine,
                                          )
 
 
-# async def get_session() -> AsyncGenerator[AsyncSession, None]:
-#     async with async_session_maker() as session:
-#         try:
-#             yield session
-#         except Exception:
-#             await session.rollback()
-#             raise
-#         finally:
-#             await session.close()
-
 def connection(func):
     async def wrapper(*args, **kwargs):
         async with async_session_maker() as session:

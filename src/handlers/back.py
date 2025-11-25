@@ -15,9 +15,13 @@ import messages as msg_text
                     )
 async def back_to_main(call: CallbackQuery, state: FSMContext):
     await state.finish()
-    user = await get_user(call.from_user.id)
-    if user.is_admin == "true":
-        await call.message.edit_text(msg_text.main_mes_ru, reply_markup=main_kb.main_admin)
+    user, ban = await get_user(call.from_user.id)
+    if ban:
+        await call.message.edit_text("Вы в бане")
+        return
+    
+    if user.is_admin:
+        await call.message.edit_text(msg_text.main_mes_ru, reply_markup=main_kb.main_menu_admin)
     else:
         if user.language == "ru":
             await call.message.edit_text(msg_text.main_mes_ru, reply_markup=main_kb.main_menu_ru)

@@ -11,6 +11,7 @@ from alembic import context
 
 from core.settings import settings
 from src.database.models.tables.users import User
+from src.database.models.tables.banned import Banned
 from src.database.db import Base
 
 

@@ -3,7 +3,7 @@ from aiogram import executor
 from core.app import dp, bot
 from core.settings import settings
 from src.middleware.media_group import MediaGroupMiddleware
-from src.handlers.merge import merge_pdf_handler
+from src.handlers.pdf.merge import merge_pdf_handler
 import src.handlers
 
 

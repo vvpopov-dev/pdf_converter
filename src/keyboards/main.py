@@ -24,6 +24,13 @@ main_menu_es = InlineKeyboardMarkup(row_width=2).add(
     btn.help_button_es, btn.change_lang_button_es
 )
 
+"""Главное меню для администрации"""
+main_menu_admin = InlineKeyboardMarkup().add(
+    btn.pdf_button_ru, btn.word_button_ru).add(
+        btn.merge_button_ru).add(
+    btn.help_button_ru, btn.change_lang_button_ru, admbtn.adm_menu_btn
+)
+
 """Меню настроек на русском языке"""
 settings_menu_ru = InlineKeyboardMarkup(row_width=1).add(
     btn.change_lang_button_ru,
@@ -71,9 +78,5 @@ admin_kb = InlineKeyboardMarkup(row_width=2).add(
     admbtn.sendall_btn
     ).add(
     admbtn.ban_btn, admbtn.unban_btn, admbtn.stat_btn
-)
-main_admin = InlineKeyboardMarkup().add(
-    btn.pdf_button_ru, btn.word_button_ru).add(
-        btn.merge_button_ru).add(
-    btn.help_button_ru, btn.change_lang_button_ru, admbtn.adm_menu_btn
-)
+).add(btn.back_button_ru)
+

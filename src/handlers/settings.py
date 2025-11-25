@@ -45,14 +45,17 @@ async def change_language(call: CallbackQuery):
                            lang.data == "lang_btn_es"
                            )
 async def set_language(call: CallbackQuery):
-    if call.data == "lang_btn_ru":
-        user_lang = "ru"
-        await call.message.edit_text(msg_text.set_lang_ru, reply_markup=main_kb.main_menu_ru)
-    elif call.data == "lang_btn_es":
-        user_lang = "es"
-        await call.message.edit_text(msg_text.set_lang_es, reply_markup=main_kb.main_menu_es)
-    else:
-        user_lang = "en"
-        await call.message.edit_text(msg_text.set_lang_en, reply_markup=main_kb.main_menu_en)
-    
-    await update_language(call.from_user.id, new_language=user_lang)
+    try:
+        await update_language(call.from_user.id, new_language=user_lang)
+
+        if call.data == "lang_btn_ru":
+            user_lang = "ru"
+            await call.message.edit_text(msg_text.set_lang_ru, reply_markup=main_kb.main_menu_ru)
+        elif call.data == "lang_btn_es":
+            user_lang = "es"
+            await call.message.edit_text(msg_text.set_lang_es, reply_markup=main_kb.main_menu_es)
+        else:
+            user_lang = "en"
+            await call.message.edit_text(msg_text.set_lang_en, reply_markup=main_kb.main_menu_en)
+    except:
+        await call.message.edit_text(msg_text.error_en, )
